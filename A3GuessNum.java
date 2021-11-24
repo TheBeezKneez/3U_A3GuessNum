@@ -1,27 +1,34 @@
 /*
-*Name:
-*Date:
-*Desription:
+*Name: Keira Innes
+*Date: Nov 23, 2021
+*Desription: Number guessing game
 */
-
 import java.util.*;
 
-public A3GuessNum{
-  
-  
-  //main method
-  public static void main(String[] arg){
-    // Make a scanner and Random Object.
-    Scanner input = new Scanner(System.in);
-    Random numGenerator = new Random();
+public class A3GuessNum
+{
     
-    // Generate a random number from 0-5.
-    int answer = numGenerator.nextInt(6);
-    int guess = -1; // default guess num.
+    //method
+    public static void mainGame(){
+        
+        Random randomNumGenerator = new Random();
+        int dieRoll = randomNumGenerator.nextInt(100)+1;
+        System.out.println(dieRoll);
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Guess a number");
+        int guess = input.nextInt();
+        
+    }
     
-    System.out.println("Guess a number");
-    int guess = input.nextInt();  
-    
-      
-  }// close main
+    //main method
+	public static void main(String[] args) {
+        
+        boolean win = false;
+        
+        if (!win){
+            mainGame();
+        }
+        
+    }// close main
 }
