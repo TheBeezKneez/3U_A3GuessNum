@@ -13,11 +13,10 @@ public class A3GuessNum
     static int guess;
     
     
-    //method
+    //Method
     public static void mainGame(){
         
-        Random randomNumGenerator = new Random();
-        dieRoll = randomNumGenerator.nextInt(100)+1;
+        
         System.out.println(dieRoll);
         
         Scanner input = new Scanner(System.in);
@@ -27,12 +26,15 @@ public class A3GuessNum
         
     }
     
-    //main method
+    //Main method
 	public static void main(String[] args) {
         
         //Objects
         boolean win = false;
         int chancesLeft = 5;
+        Random randomNumGenerator = new Random();
+        dieRoll = randomNumGenerator.nextInt(100)+1;
+        
         
         
         //Game
@@ -51,8 +53,30 @@ public class A3GuessNum
                 
                 //Normal code
                 if (chancesLeft != 0){
+                    
                     System.out.println("Sorry thats the wrong number, you have "+chancesLeft+" chance(s) left. Try again!");
                     chancesLeft--;
+                    
+                    //Hint system
+                    if ((Math.abs(dieRoll - guess)) > 50){
+                            System.out.println("Hint: Freezing");
+                    }
+                    
+                    else if ((Math.abs(dieRoll - guess)) > 25){
+                        System.out.println("Hint: Cold");
+                    }
+                    
+                    else if ((Math.abs(dieRoll - guess)) > 10){
+                        System.out.println("Hint: Warm");
+                    }
+                    
+                    else if ((Math.abs(dieRoll - guess)) > 5){
+                        System.out.println("Hint: Hot");
+                    }
+                    
+                    else{
+                        System.out.println("Hint: You're burning! Everything's on fire!");
+                    }
                 }
                 
                 //If you ran out of guesses
