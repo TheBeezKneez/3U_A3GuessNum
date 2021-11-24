@@ -28,7 +28,7 @@ public class A3GuessNum
         
     }
     
-    //Method 2
+    //Method 2 (contains most of the game)
     public static void fullGame(){
         while (!win && chancesLeft != -1){
             
@@ -96,13 +96,39 @@ public class A3GuessNum
             
             //If you want to play game
             if (replay.equalsIgnoreCase("yes")){
+                
+                Scanner input2 = new Scanner(System.in);
+                System.out.println("Do you want to hear the instructions? Type \"Yes\" or \"No\"");
+                String instructions = input2.nextLine();
+                
+                //If you want instructions
+                if (instructions.equalsIgnoreCase("yes")){
+                    System.out.println("\nThe computer will generate a random number between 1 and 100. Your goal is to correctly guess the same number as the computer. ");
+                    System.out.println("You will get 5 chances to guess correctly and you will lose once you've run out");
+                    System.out.println("Don't worry! The computer will also give you hints to help you figure out how far or close you are from the computer's number\n");
+                }
+                
+                //If you DONT want instructions
+                else if (instructions.equalsIgnoreCase("no")){
+                    //Continue on with the game
+                }
+                
+                //You misstyped
+                else{
+                    System.out.println("You typed in something incorrectly. I don't know what you actually wanted to input so I'll just start the game\n");
+                }
+                
                 fullGame();
                 chancesLeft = 5; //resetting chances
             }
+            
+            //If you DONT want to play game
             else if (replay.equalsIgnoreCase("no")){
                 System.out.println("Alright, see you next time");
                 break;
             }
+            
+            //You misstyped
             else{
                 System.out.println("You typed in something incorrectly, pay closer attention to the instructions and try again\n");
             }
