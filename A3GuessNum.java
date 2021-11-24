@@ -11,9 +11,11 @@ public class A3GuessNum
     //Global variables
     static int dieRoll;
     static int guess;
+    static boolean win = false;
+    static int chancesLeft = 5;
     
     
-    //Method
+    //Method 1
     public static void mainGame(){
         
         
@@ -26,18 +28,8 @@ public class A3GuessNum
         
     }
     
-    //Main method
-	public static void main(String[] args) {
-        
-        //Objects
-        boolean win = false;
-        int chancesLeft = 5;
-        Random randomNumGenerator = new Random();
-        dieRoll = randomNumGenerator.nextInt(100)+1;
-        
-        
-        
-        //Game
+    //Method 2
+    public static void fullGame(){
         while (!win && chancesLeft != -1){
             
             mainGame();
@@ -84,8 +76,41 @@ public class A3GuessNum
                     System.out.println("Sorry you didn't win. Beter luck next time");
                     chancesLeft--;
                 }
+                
             }
         }
+    }//End method 2
+    
+    //Main method
+	public static void main(String[] args) {
+        
+        //Objects
+        Random randomNumGenerator = new Random();
+        dieRoll = randomNumGenerator.nextInt(100)+1;
+        
+        //Game and repetition
+        while (4 == 4){
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Do you want to play my Guessing Game?\ntype \"Yes\" or \"No\"");
+            String replay = input1.nextLine();
+            
+            //If you want to play game
+            if (replay.equalsIgnoreCase("yes")){
+                fullGame();
+                chancesLeft = 5; //resetting chances
+            }
+            else if (replay.equalsIgnoreCase("no")){
+                System.out.println("Alright, see you next time");
+                break;
+            }
+            else{
+                System.out.println("You typed in something incorrectly, pay closer attention to the instructions and try again\n");
+            }
+        }
+        
+        
+        
+        
        
         
     }// close main
