@@ -7,28 +7,40 @@ import java.util.*;
 
 public class A3GuessNum
 {
+    //Global variables
+    static int dieRoll;
+    static int guess;
+    
     
     //method
     public static void mainGame(){
         
         Random randomNumGenerator = new Random();
-        int dieRoll = randomNumGenerator.nextInt(100)+1;
+        dieRoll = randomNumGenerator.nextInt(100)+1;
         System.out.println(dieRoll);
         
         Scanner input = new Scanner(System.in);
         System.out.println("Guess a number");
-        int guess = input.nextInt();
+        guess = input.nextInt();
+        
         
     }
     
     //main method
 	public static void main(String[] args) {
         
+        //objects
         boolean win = false;
         
-        if (!win){
+        while (!win){
+            
             mainGame();
+            
+            if (guess == dieRoll){
+                //stuff
+            }
         }
+       
         
     }// close main
 }
