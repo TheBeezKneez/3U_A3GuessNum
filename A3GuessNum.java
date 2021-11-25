@@ -6,7 +6,7 @@ A3GuessNum**************
 */
 import java.util.*;
 
-public class A3GuessNum
+public class Main
 {
     //Global variables
     static int dieRoll;
@@ -49,7 +49,7 @@ public class A3GuessNum
                     System.out.println("Sorry thats the wrong number, you have "+chancesLeft+" chance(s) left. Try again!");
                     chancesLeft--;
                     
-                    //Hint system
+                    //Hint system #1
                     if ((Math.abs(dieRoll - guess)) > 50){
                             System.out.println("Hint: Freezing");
                     }
@@ -68,6 +68,14 @@ public class A3GuessNum
                     
                     else{
                         System.out.println("Hint: You're burning! Everything's on fire!");
+                    }
+
+                    //Hint system #2
+                    if (guess > dieRoll){
+                      System.out.println("Too high");
+                    }
+                    if (guess < dieRoll){
+                      System.out.println("Too low");
                     }
                 }
                 
@@ -91,7 +99,7 @@ public class A3GuessNum
         //Game and repetition
         while (4 == 4){
             Scanner input1 = new Scanner(System.in);
-            System.out.println("Do you want to play my Guessing Game?\ntype \"Yes\" or \"No\"");
+            System.out.println("Do you want to play the Guessing Game?\ntype \"Yes\" or \"No\"");
             String replay = input1.nextLine();
             
             //If you want to play game
@@ -99,23 +107,20 @@ public class A3GuessNum
                 
                 Scanner input2 = new Scanner(System.in);
                 System.out.println("Do you want to hear the instructions? Type \"Yes\" or \"No\"");
-                String instructions = input2.nextLine();
+                String instructions = input2.nextLine(); //record the user input
                 
-                //If you want instructions
+                while (!instructions.equalsIgnoreCase("yes") && !instructions.equalsIgnoreCase("no")){
+                    System.out.println("You did not enter a valid input, try again.");
+                    Scanner input3 = new Scanner(System.in);
+                    System.out.println("Do you want to hear the instructions? Type \"Yes\" or \"No\"");
+                    instructions = input3.nextLine(); //record the user input
+                }
+                //If you WANT instructions
                 if (instructions.equalsIgnoreCase("yes")){
-                    System.out.println("\nThe computer will generate a random number between 1 and 100. Your goal is to correctly guess the same number as the computer. ");
-                    System.out.println("You will get 5 chances to guess correctly and you will lose once you've run out");
-                    System.out.println("Don't worry! The computer will also give you hints to help you figure out how far or close you are from the computer's number\n");
-                }
-                
-                //If you DONT want instructions
-                else if (instructions.equalsIgnoreCase("no")){
-                    //Continue on with the game
-                }
-                
-                //You misstyped
-                else{
-                    System.out.println("You typed in something incorrectly. I don't know what you actually wanted to input so I'll just start the game\n");
+                System.out.println("\nThe computer will pick a secret number between 1 and 100. Your goal is to correctly guess the secret number. ");
+                System.out.println("You will get 5 guesses and once you've run out, you lose.");
+                System.out.println("Don't worry! The computer will also give you hints to help you figure out how far or close you are from the secret number.");
+                System.out.println("Lets begin!\n");
                 }
                 
                 fullGame();
