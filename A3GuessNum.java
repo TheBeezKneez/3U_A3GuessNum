@@ -3,10 +3,12 @@
 *Date: Nov 23, 2021
 *Desription: Number guessing game
 A3GuessNum**************
+ hasNextInt() thing
+ https://stackoverflow.com/questions/18119211/how-to-check-if-user-input-is-not-an-int-value/18119273
 */
 import java.util.*;
 
-public class Main
+public class A3GuessNum
 {
     //Global variables
     static int dieRoll;
