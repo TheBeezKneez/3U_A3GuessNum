@@ -8,7 +8,7 @@ A3GuessNum**************
 */
 import java.util.*;
 
-public class Main
+public class A3GuessNum
 {
     //Global variables
     static int dieRoll;
