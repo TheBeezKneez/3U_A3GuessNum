@@ -8,27 +8,44 @@ A3GuessNum**************
 */
 import java.util.*;
 
-public class A3GuessNum
+public class Main
 {
     //Global variables
     static int dieRoll;
+    static String guessString;
     static int guess;
     static boolean win = false;
     static int chancesLeft = 5;
+    static boolean numberExeption = false;
     
     
     //Method 1
     public static void mainGame(){
-        
-        
+
         System.out.println(dieRoll);
         
-        Scanner input = new Scanner(System.in);
-        System.out.println("Guess a number");
-        guess = input.nextInt();
+        //If there is an invalid input type
+        while (true){
+            Scanner input = new Scanner(System.in);
+            System.out.println("Guess a number");
+            guessString = input.nextLine();
+            
+            try{
+                guess = Integer.parseInt(guessString);
+            }
+            catch (NumberFormatException ex){
+                numberExeption = true;
+                System.out.println("You've entered an invalid input type, try again.");
+                break;
+            }
+            if (numberExeption = false){
+                guess = Integer.parseInt(guessString);
+                break;
+            }
+            
+        }//close while loop
         
         
-    }
     
     //Method 2 (contains most of the game)
     public static void fullGame(){
@@ -107,10 +124,12 @@ public class A3GuessNum
             //If you want to play game
             if (replay.equalsIgnoreCase("yes")){
                 
+                //Instructions question
                 Scanner input2 = new Scanner(System.in);
                 System.out.println("Do you want to hear the instructions? Type \"Yes\" or \"No\"");
                 String instructions = input2.nextLine(); //record the user input
                 
+                //If input is invalid
                 while (!instructions.equalsIgnoreCase("yes") && !instructions.equalsIgnoreCase("no")){
                     System.out.println("You did not enter a valid input, try again.");
                     Scanner input3 = new Scanner(System.in);
@@ -141,10 +160,6 @@ public class A3GuessNum
             }
         }
         
-        
-        
-        
-       
         
     }// close main
 }
