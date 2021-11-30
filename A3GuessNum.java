@@ -36,15 +36,16 @@ public class A3GuessNum
             catch (NumberFormatException ex){
                 numberExeption = true;
                 System.out.println("You've entered an invalid input type, try again.");
-                break;
+                System.out.println(numberExeption);
             }
             if (numberExeption = false){
                 guess = Integer.parseInt(guessString);
                 break;
             }
+            System.out.println("The program did not exit the loop >:(");
             
         }//close while loop
-        
+    }//close method 
         
     
     //Method 2 (contains most of the game)
