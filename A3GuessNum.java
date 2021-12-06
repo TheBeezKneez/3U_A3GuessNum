@@ -61,7 +61,7 @@ public class A3GuessNum
             
             //If you won
             if (guess == dieRoll){
-                System.out.println("\nYou won!!");
+                System.out.println("\nYou won!!\n");
                 win = true;
             }
             
@@ -94,7 +94,7 @@ public class A3GuessNum
                     else{
                         System.out.println("Hint: You're burning! Everything's on fire!");
                     }
-
+                    
                     //Hint system #2
                     if (guess > dieRoll){
                       System.out.println("Hint: Too high");
@@ -120,6 +120,8 @@ public class A3GuessNum
         //Objects
         Random randomNumGenerator = new Random();
         dieRoll = randomNumGenerator.nextInt(100)+1;
+        int timesWon = 0;
+        int timesLost = 0;
         
         //Game and repetition
         while (4 == 4){
@@ -150,13 +152,26 @@ public class A3GuessNum
                 System.out.println("Lets begin!\n");
                 }
                 
+                //Run the game
                 fullGame();
+                
+                //Keeping score
+                if (win == true){
+                    timesWon++;
+                }
+                else{
+                    timesLost++;
+                }
+                System.out.println("Your score: "+timesWon);
+                System.out.println("Computer's score: "+timesLost+"\n");
+                
                 chancesLeft = 5; //resetting chances
                 win = false; //resetting win score
             }
             
             //If you DONT want to play game
             else if (replay.equalsIgnoreCase("no")){
+                
                 System.out.println("Alright, see you next time.");
                 break;
             }
