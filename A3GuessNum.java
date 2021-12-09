@@ -12,7 +12,7 @@ public class A3GuessNum
     static String guessString;
     static int guess;
     static boolean win = false;
-    static int chancesLeft = 5;
+    static int chancesLeft = 4;
     
     
     //Method 1
@@ -25,7 +25,7 @@ public class A3GuessNum
             
             //record the users input
             Scanner input = new Scanner(System.in);
-            System.out.println("Guess a number.\n");
+            System.out.print("\nGuess a number: ");
             guessString = input.nextLine();
             
             try{
@@ -33,7 +33,7 @@ public class A3GuessNum
             }
             catch (NumberFormatException ex){   //if it catches an error
                 numberExeption = true;
-                System.out.println("You've entered an invalid input type, try again.\n");
+                System.out.println("You've entered an invalid input type, try again.");
             }
             
             //If program doesn't catch a number exeption
@@ -71,7 +71,7 @@ public class A3GuessNum
                 //Normal code
                 if (chancesLeft != 0){
                     
-                    System.out.println("\nSorry thats the wrong number, you have "+chancesLeft+" chance(s) left. Try again!");
+                    System.out.println("Sorry thats the wrong number, you have "+chancesLeft+" chance(s) left. Try again!");
                     chancesLeft--;
                     
                     //Hint system #1
@@ -118,15 +118,18 @@ public class A3GuessNum
 	public static void main(String[] args) {
         
         //Objects
-        Random randomNumGenerator = new Random();
-        dieRoll = randomNumGenerator.nextInt(100)+1;
         int timesWon = 0;
         int timesLost = 0;
         
         //Game and repetition
         while (4 == 4){
+
+            //Creating random number
+            Random randomNumGenerator = new Random();
+            dieRoll = randomNumGenerator.nextInt(100)+1;
+
             Scanner input1 = new Scanner(System.in);
-            System.out.println("Do you want to play the Guessing Game?\ntype \"Yes\" or \"No\"");
+            System.out.print("Do you want to play the Guessing Game?\nType \"Yes\" or \"No\": ");
             String replay = input1.nextLine();
             
             //If you want to play game
@@ -134,7 +137,7 @@ public class A3GuessNum
                 
                 //Instructions question
                 Scanner input2 = new Scanner(System.in);
-                System.out.println("\nDo you want to hear the instructions? Type \"Yes\" or \"No\"");
+                System.out.print("Do you want to hear the instructions?\nType \"Yes\" or \"No\": ");
                 String instructions = input2.nextLine(); //record the user input
                 
                 //If input is invalid
@@ -149,7 +152,7 @@ public class A3GuessNum
                 System.out.println("\nThe computer will pick a secret number between 1 and 100. Your goal is to correctly guess the secret number. ");
                 System.out.println("You will get 5 guesses and once you run out, you lose.");
                 System.out.println("Don't worry though! The computer will also give you hints to help you figure out how far or close you are from the secret number.");
-                System.out.println("Lets begin!\n");
+                System.out.println("Lets begin!");
                 }
                 
                 //Run the game
